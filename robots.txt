@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://schten052.github.io/cn-official-i-game-com-cn/sitemap.xml
