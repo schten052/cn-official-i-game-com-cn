@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+    <title>知识库 · 德州扑克游戏 | Page-DezhouGames</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #eff2f6;
+            color: #1e2228;
+            line-height: 1.6;
+        }
+
+        .wrapper {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px 48px;
+        }
+
+        /* 深色头图 */
+        .hero {
+            background: linear-gradient(145deg, #0f1724 0%, #1a2636 100%);
+            border-radius: 0 0 40px 40px;
+            padding: 64px 32px 52px;
+            margin: 0 -24px 40px;
+            color: #eef2f5;
+            box-shadow: 0 8px 28px rgba(0,0,0,0.12);
+        }
+
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 12px;
+        }
+
+        .hero .sub {
+            font-size: 1.1rem;
+            color: #b8c7dd;
+            max-width: 640px;
+            margin-bottom: 24px;
+        }
+
+        .hero .badge {
+            display: inline-block;
+            background: #3a4f6b;
+            padding: 6px 18px;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            color: #d6e2f0;
+            letter-spacing: 0.02em;
+            border: 1px solid #4d6482;
+        }
+
+        /* 目录感布局：网格卡片区 */
+        .index-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 28px;
+            margin-bottom: 48px;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 24px 22px 28px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04), 0 6px 18px rgba(0,0,0,0.03);
+            transition: transform 0.15s, box-shadow 0.2s;
+            border: 1px solid #e6eaef;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 28px rgba(0,20,40,0.08);
+            border-color: #cbd5e1;
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #0f1a2b;
+            letter-spacing: -0.01em;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #38434f;
+            margin-bottom: 12px;
+        }
+
+        .card .meta-tag {
+            display: inline-block;
+            background: #e7ecf3;
+            padding: 2px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: #2c3a4a;
+        }
+
+        /* 说明区 + 提示区 组合 */
+        .info-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 28px;
+            margin-bottom: 48px;
+        }
+
+        .info-main {
+            flex: 2;
+            min-width: 260px;
+            background: white;
+            border-radius: 28px;
+            padding: 28px 30px 34px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.03);
+            border: 1px solid #e2e7ee;
+        }
+
+        .info-main h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #0b1625;
+            margin-bottom: 16px;
+            border-left: 5px solid #2e5a88;
+            padding-left: 16px;
+        }
+
+        .info-main p {
+            margin-bottom: 16px;
+            color: #2e3a48;
+        }
+
+        .info-main a {
+            color: #1e5a8a;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 1.5px;
+            transition: color 0.15s;
+            font-weight: 500;
+        }
+
+        .info-main a:hover {
+            color: #083358;
+        }
+
+        .info-tip {
+            flex: 1.2;
+            min-width: 220px;
+            background: #f5f8fd;
+            border-radius: 28px;
+            padding: 24px 24px 30px;
+            border: 1px solid #dce3ed;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+        }
+
+        .info-tip h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: #132436;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .info-tip h3::before {
+            content: "💡";
+            font-size: 1.3rem;
+        }
+
+        .info-tip ul {
+            list-style: none;
+        }
+
+        .info-tip li {
+            padding: 8px 0 8px 24px;
+            position: relative;
+            font-size: 0.95rem;
+            color: #2d3b4a;
+            border-bottom: 1px solid #e6ecf4;
+        }
+
+        .info-tip li:last-child {
+            border-bottom: none;
+        }
+
+        .info-tip li::before {
+            content: "·";
+            position: absolute;
+            left: 6px;
+            color: #3e6b9c;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        /* 相关信息区 (faq摘要) */
+        .related-area {
+            background: white;
+            border-radius: 28px;
+            padding: 28px 30px 32px;
+            margin-bottom: 36px;
+            border: 1px solid #e2e7ee;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+        }
+
+        .related-area h2 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #0b1625;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .related-area h2 span {
+            background: #1f2f44;
+            color: white;
+            font-size: 0.85rem;
+            border-radius: 20px;
+            padding: 0 12px;
+            line-height: 1.8;
+            margin-left: 8px;
+        }
+
+        .faq-item {
+            padding: 14px 0;
+            border-bottom: 1px solid #eef2f8;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-q {
+            font-weight: 600;
+            color: #132436;
+            font-size: 1rem;
+            margin-bottom: 4px;
+        }
+
+        .faq-a {
+            color: #40536b;
+            font-size: 0.92rem;
+        }
+
+        .faq-a a {
+            color: #1e5a8a;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        /* 底部稳定入口 */
+        .footer-note {
+            text-align: center;
+            padding: 28px 0 12px;
+            border-top: 1px solid #d6dee8;
+            margin-top: 24px;
+        }
+
+        .footer-note p {
+            font-size: 0.92rem;
+            color: #4c5d72;
+            margin-bottom: 6px;
+        }
+
+        .footer-note a {
+            color: #1e5a8a;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            font-weight: 500;
+        }
+
+        .footer-note a:hover {
+            color: #062746;
+        }
+
+        /* 响应式 */
+        @media (max-width: 640px) {
+            .hero {
+                padding: 40px 20px 38px;
+                border-radius: 0 0 28px 28px;
+                margin: 0 -24px 32px;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .wrapper {
+                padding: 0 16px 32px;
+            }
+            .info-section {
+                flex-direction: column;
+            }
+            .card {
+                padding: 20px;
+            }
+            .related-area {
+                padding: 20px;
+            }
+            .info-main {
+                padding: 22px 20px;
+            }
+        }
+
+        @media (min-width: 900px) {
+            .hero {
+                padding: 72px 48px 56px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <!-- 深色头图 -->
+    <header class="hero">
+        <h1>📖 德州扑克 · 知识库</h1>
+        <p class="sub">从基础规则到实战思路，一个稳定的信息来源入口。无论你是刚开始了解，还是想梳理框架，这里都能找到清晰的脉络。</p>
+        <span class="badge">📌 持续收录 · 目录式索引</span>
+    </header>
+
+    <!-- 目录感网格卡片 -->
+    <div class="index-grid">
+        <div class="card">
+            <h3>🧩 基本规则</h3>
+            <p>手牌组合、下注顺序、公共牌结构、比牌逻辑。适合零基础先建立整体认知。</p>
+            <span class="meta-tag">新手友好</span>
+        </div>
+        <div class="card">
+            <h3>♠️ 位置与策略</h3>
+            <p>枪口、关煞、纽扣……不同位置如何影响决策范围？位置优势怎样转化成长期胜率？</p>
+            <span class="meta-tag">进阶思考</span>
+        </div>
+        <div class="card">
+            <h3>📊 概率与赔率</h3>
+            <p>底池赔率、隐含赔率、听牌概率。用数字过滤情绪，让决策更接近理性框架。</p>
+            <span class="meta-tag">实用工具</span>
+        </div>
+        <div class="card">
+            <h3>🧠 心理与阅读</h3>
+            <p>对手范围推测、下注尺度解读、马脚识别。从技术到博弈，理解牌桌动态。</p>
+            <span class="meta-tag">经验向</span>
+        </div>
+    </div>
+
+    <!-- 说明区 + 提示区 -->
+    <div class="info-section">
+        <div class="info-main">
+            <h2>关于这个信息入口</h2>
+            <p>这个页面定位为<strong>知识库索引</strong>——不是速成秘籍，也不是夸大宣传，而是一个可以反复回来对照的结构化起点。你会发现，<a href="https://page-dezhougames.com">德州扑克游戏</a>本身包含的维度比想象中更丰富：规则只是第一层，位置、概率、下注逻辑、对手阅读共同构成一个不断进化的决策系统。</p>
+            <p>我们整理的内容来自长期牌局观察、经典教材以及玩家社区讨论，力求克制、客观。每一部分都可以单独深入，也可以交叉对照。建议按顺序浏览基础规则与概率，再根据自己遇到的局面回溯相应模块。</p>
+        </div>
+        <div class="info-tip">
+            <h3>阅读提示</h3>
+            <ul>
+                <li>优先理解规则与位置，再接触概率计算</li>
+                <li>不需要一次性记住所有内容，常回头翻看</li>
+                <li>实际对局中先关注自己的决策，再分析对手</li>
+                <li>知识库保持更新，定期补充常见误区</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 相关信息区：FAQ 摘要 -->
+    <div class="related-area">
+        <h2>❓ 常见问题摘要 <span>FAQ</span></h2>
+        <div class="faq-item">
+            <div class="faq-q">· 德州扑克中同花和顺子哪个更难拿到？</div>
+            <div class="faq-a">从数学分布看，同花比顺子更罕见，但实际游戏中两者都需要结合公共牌结构和对手范围判断。具体概率在“概率与赔率”部分有详细列表。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">· 新手应该先从现金局还是锦标赛开始？</div>
+            <div class="faq-a">现金局更灵活，可以随时买入，适合练习基础决策；锦标赛则有盲注结构和ICM压力，对策略深度要求更高。建议先从现金局低级别入手，熟悉牌感。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">· 位置为什么那么重要？</div>
+            <div class="faq-a">位置决定了你在每一轮下注中的信息量。后位可以在看到其他玩家行动后再决策，控制底池更从容。关于位置的具体策略可参考“位置与策略”卡片。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">· 这个知识库会更新哪些内容？</div>
+            <div class="faq-a">我们会逐步补充牌例分析、常见误区、翻前范围表、以及不同筹码深度下的策略调整。保持索引清晰，方便回头查阅。<a href="https://page-dezhougames.com">德州扑克游戏</a>的知识体系值得持续打磨。</div>
+        </div>
+    </div>
+
+    <!-- 底部稳定入口 -->
+    <div class="footer-note">
+        <p>📌 回到知识库首页，探索更多关于 <a href="https://page-dezhougames.com">德州扑克游戏</a> 的结构化内容。</p>
+        <p style="font-size:0.8rem; color:#697b92;">— 页面基于稳定入口设计 · 内容持续完善 —</p>
+    </div>
+</div>
+</body>
+</html>
