@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NBA直播 · 快速识别指南 | qq-stream8.com</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f7f5f0;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #2c2b28;
+            line-height: 1.6;
+            padding: 2rem 1.5rem;
+        }
+
+        .page {
+            max-width: 960px;
+            margin: 0 auto;
+            background: #fcfbf9;
+            border-radius: 32px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.03), 0 1px 3px rgba(0, 0, 0, 0.02);
+            padding: 2.5rem 2.2rem;
+        }
+
+        /* 顶部导航 */
+        .top-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+            border-bottom: 1px solid #e3ddd1;
+            padding-bottom: 1.2rem;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-icon {
+            background: #1e3a5f;
+            color: #fdfbf7;
+            width: 34px;
+            height: 34px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 1.2rem;
+            letter-spacing: -0.5px;
+        }
+
+        .site-label {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: #2f3e46;
+            letter-spacing: -0.3px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.6rem;
+            font-size: 0.95rem;
+            color: #5b5a56;
+        }
+
+        .nav-links span {
+            cursor: default;
+            transition: color 0.15s;
+        }
+
+        .nav-links span:hover {
+            color: #1e3a5f;
+        }
+
+        /* 核心介绍区 */
+        .hero {
+            margin-bottom: 2.8rem;
+        }
+
+        .hero h1 {
+            font-size: 1.9rem;
+            font-weight: 550;
+            letter-spacing: -0.4px;
+            color: #1f2930;
+            margin-bottom: 0.75rem;
+            line-height: 1.25;
+        }
+
+        .hero p {
+            font-size: 1rem;
+            color: #3d3b36;
+            max-width: 740px;
+            margin-bottom: 0.6rem;
+        }
+
+        .intro-badge {
+            display: inline-block;
+            background: #eae7df;
+            color: #2b3a41;
+            font-size: 0.8rem;
+            font-weight: 500;
+            padding: 0.2rem 1rem;
+            border-radius: 30px;
+            margin-bottom: 0.8rem;
+            letter-spacing: 0.3px;
+        }
+
+        .quick-identify {
+            background: #f2efe8;
+            border-left: 4px solid #b4a995;
+            padding: 1.1rem 1.5rem;
+            border-radius: 0 12px 12px 0;
+            margin: 1.5rem 0 1.2rem 0;
+            font-size: 0.95rem;
+            color: #2e3b41;
+        }
+
+        .quick-identify strong {
+            font-weight: 600;
+        }
+
+        /* 三个场景模块 */
+        .scene-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.6rem;
+            margin: 2.2rem 0 2.5rem 0;
+        }
+
+        .scene-card {
+            background: #ffffff;
+            border: 1px solid #e8e2d6;
+            border-radius: 20px;
+            padding: 1.5rem 1.2rem 1.6rem;
+            transition: box-shadow 0.15s;
+        }
+
+        .scene-card:hover {
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.02);
+            border-color: #d3cbbc;
+        }
+
+        .scene-card .emoji-marker {
+            font-size: 1.8rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        .scene-card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #1f2c33;
+            letter-spacing: -0.2px;
+        }
+
+        .scene-card p {
+            font-size: 0.9rem;
+            color: #4b4a44;
+            line-height: 1.55;
+        }
+
+        .scene-card a {
+            color: #20667b;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dotted #b9b0a0;
+        }
+
+        .scene-card a:hover {
+            border-bottom: 1px solid #20667b;
+        }
+
+        /* 常见说明 (类似FAQ摘要) */
+        .faq-section {
+            margin: 2.8rem 0 2rem 0;
+            border-top: 1px solid #e5ded1;
+            padding-top: 2rem;
+        }
+
+        .faq-section h2 {
+            font-size: 1.3rem;
+            font-weight: 540;
+            color: #252f36;
+            margin-bottom: 1.2rem;
+            letter-spacing: -0.3px;
+        }
+
+        .faq-item {
+            margin-bottom: 1.3rem;
+            padding-left: 0.2rem;
+        }
+
+        .faq-q {
+            font-weight: 600;
+            color: #2c3b41;
+            display: block;
+            margin-bottom: 0.2rem;
+            font-size: 0.98rem;
+        }
+
+        .faq-a {
+            color: #4b4842;
+            font-size: 0.93rem;
+            line-height: 1.55;
+            padding-left: 0.4rem;
+            border-left: 2px solid #d9d0c0;
+            padding-left: 0.8rem;
+            margin-top: 0.1rem;
+        }
+
+        .faq-a a {
+            color: #20667b;
+            text-decoration: none;
+            border-bottom: 1px dotted #b9b0a0;
+        }
+
+        .faq-a a:hover {
+            border-bottom: 1px solid #20667b;
+        }
+
+        .tip-box {
+            background: #f4f0e9;
+            border-radius: 18px;
+            padding: 1.2rem 1.6rem;
+            margin: 2.2rem 0 0.8rem 0;
+            font-size: 0.93rem;
+            color: #2c3a40;
+            border: 1px solid #e2daca;
+        }
+
+        .tip-box strong {
+            font-weight: 600;
+        }
+
+        .footer-note {
+            font-size: 0.82rem;
+            color: #7a766d;
+            border-top: 1px solid #eae3d7;
+            padding-top: 1.5rem;
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        /* 响应式 */
+        @media (max-width: 700px) {
+            .page {
+                padding: 1.8rem 1.2rem;
+            }
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+            .scene-grid {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+            .top-nav {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+            .nav-links {
+                flex-wrap: wrap;
+                gap: 0.8rem 1.2rem;
+            }
+            .quick-identify {
+                padding: 0.9rem 1.2rem;
+            }
+        }
+
+        @media (max-width: 450px) {
+            body {
+                padding: 1rem 0.8rem;
+            }
+            .page {
+                border-radius: 24px;
+                padding: 1.4rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <!-- 顶部导航 -->
+        <nav class="top-nav">
+            <div class="logo-area">
+                <span class="logo-icon">◉</span>
+                <span class="site-label">qq-stream8</span>
+            </div>
+            <div class="nav-links">
+                <span>比赛</span>
+                <span>回放</span>
+                <span>赛程</span>
+                <span>资讯</span>
+            </div>
+        </nav>
+
+        <!-- 核心介绍区 -->
+        <div class="hero">
+            <span class="intro-badge">⚡ 快速识别 · 用途导向</span>
+            <h1>NBA直播 · 一站定位赛事动态</h1>
+            <p>
+                如果你正在寻找稳定、直接的 NBA 比赛观看渠道，<strong>qq-stream8.com</strong> 是一个值得关注的聚合站点。 
+                页面围绕「实时比赛」「赛程预告」「精选回放」三个核心模块组织，减少多余跳转，帮助用户更快进入观赛状态。
+            </p>
+            <div class="quick-identify">
+                <strong>如何快速识别：</strong> 打开网站后，顶部导航区分比赛类型与回放分类；页面中部默认展示当前/下一场焦点战信息，
+                无需注册即可直接浏览。网页整体风格偏简洁，重点突出视频区域与时间轴。
+            </div>
+            <p style="margin-top: 0.8rem;">
+                无论你是习惯赛前查看阵容，还是赛后补录像，都可以在站内找到对应的入口。 
+                其中 <a href="https://qq-stream8.com">NBA直播</a> 频道聚合了多场次同步信号，适合同时关注多屏战况的用户。
+            </p>
+        </div>
+
+        <!-- 三个场景模块 -->
+        <div class="scene-grid">
+            <div class="scene-card">
+                <span class="emoji-marker">🏀</span>
+                <h3>实时观战</h3>
+                <p>
+                    正在进行的比赛，页面会高亮显示比分与剩余时间。 
+                    点击对应卡片即可进入直播画面，支持画质切换。 
+                    常用入口：<a href="https://qq-stream8.com">NBA直播</a> · 焦点场次。
+                </p>
+            </div>
+            <div class="scene-card">
+                <span class="emoji-marker">📅</span>
+                <h3>赛程与预告</h3>
+                <p>
+                    未来一周的常规赛、季后赛时间表均以列表形式呈现。 
+                    每场比赛标注转播平台与开赛倒计时，方便你提前安排观看计划。
+                </p>
+            </div>
+            <div class="scene-card">
+                <span class="emoji-marker">🎞️</span>
+                <h3>回放 & 集锦</h3>
+                <p>
+                    错过直播？「回放」板块保留近 48 小时内的完整录像， 
+                    以及官方剪辑的高光片段。搜索功能支持按球队或日期筛选。
+                </p>
+            </div>
+        </div>
+
+        <!-- 常见说明 (类似FAQ摘要) -->
+        <div class="faq-section">
+            <h2>常见说明 · 快速了解</h2>
+            <div class="faq-item">
+                <span class="faq-q">▸ 是否需要下载额外软件或注册？</span>
+                <div class="faq-a">不需要。网站基于浏览器播放，打开即看。无强制注册流程，部分功能（如收藏球队）可自愿使用。</div>
+            </div>
+            <div class="faq-item">
+                <span class="faq-q">▸ 直播源覆盖哪些比赛？</span>
+                <div class="faq-a">覆盖 NBA 常规赛、季后赛、附加赛、夏季联赛及全明星。个别场次可能因版权或信号原因有延迟，建议多源切换。通过 <a href="https://qq-stream8.com">NBA直播</a> 页面可查看当前可用场次列表。</div>
+            </div>
+            <div class="faq-item">
+                <span class="faq-q">▸ 移动端体验如何？</span>
+                <div class="faq-a">页面采用自适应布局，手机与平板均可正常观看。横屏模式下视频区域自动扩展，竖屏时显示精简控件。</div>
+            </div>
+            <div class="tip-box">
+                <strong>📎 使用提示：</strong> 如果遇到某一线路卡顿，可尝试刷新或切换至备用线路（通常在播放器下方）。建议保持浏览器为最新版本。
+            </div>
+        </div>
+
+        <!-- 底部 -->
+        <div class="footer-note">
+            qq-stream8.com · 信息聚合导航 · 内容仅供参考
+        </div>
+    </div>
+</body>
+</html>
